@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Галерея</title>
+  <link rel="stylesheet" href="/style.css" />
+</head>
+<body>
+  <header>📸 Галерея зображень</header>
+
+  <form id="addForm" enctype="multipart/form-data">
+    <input type="text" name="author" placeholder="Автор" required />
+    <input type="text" name="filename" placeholder="Назва зображення" required />
+    <input type="file" name="image" accept="image/*" required />
+    <button type="submit">Додати</button>
+  </form>
+
+  <section class="gallery" id="gallery"></section>
+
+  <div id="editModal" class="modal hidden">
+    <div class="modal-content">
+      <h3>Редагувати зображення</h3>
+      <form id="editForm" enctype="multipart/form-data">
+        <input type="hidden" name="id" />
+        <input type="text" name="author" placeholder="Автор" required />
+        <input type="text" name="filename" placeholder="Назва" required />
+        <input type="file" name="image" accept="image/*" />
+        <button type="submit">Зберегти</button>
+        <button type="button" id="closeModal">Скасувати</button>
+      </form>
+    </div>
+  </div>
+
+  <script src="/script.js"></script>
+</body>
+</html>
