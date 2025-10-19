@@ -1,0 +1,32 @@
+query {
+  images {
+    id
+    author
+    filename
+    imagePath
+    uploadDate
+  }
+}
+
+mutation {
+  addImage(author: "Ivan", filename: "Sunset", imagePath: "/uploads/sunset.jpg") {
+    id
+    author
+    filename
+  }
+}
+
+mutation {
+  updateImage(id: "68f49ef3732572e4d849eb88", author: "Ivan S.", filename: "Evening Sky") {
+    id
+    author
+    filename
+  }
+}
+
+mutation {
+  deleteImage(id: "68f49ef3732572e4d849eb88") {
+    id
+    filename
+  }
+}

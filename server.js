@@ -5,6 +5,8 @@ const cors = require("cors");
 const bodyParser = require("body-parser");
 const imageRoutes = require("./routes/imageRoutes");
 const path = require("path");
+const { graphqlHTTP } = require("express-graphql");
+const schema = require("./graphql/schema");
 
 const app = express();
 
@@ -13,6 +15,13 @@ app.use(bodyParser.json());
 app.use(express.static("public"));
 app.use("/uploads", express.static(path.join(__dirname, "uploads")));
 app.use("/api/images", imageRoutes);
+app.use(
+  "/graphql",
+  graphqlHTTP({
+    schema,
+    graphiql: true,
+  })
+);
 
 mongoose
   .connect(process.env.MONGODB_URI)
